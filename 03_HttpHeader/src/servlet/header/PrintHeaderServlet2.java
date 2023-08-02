@@ -21,8 +21,14 @@ public class PrintHeaderServlet2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
 		PrintWriter out = response.getWriter();
 		out.println("<h2>여기는 doGet 입니다...</h2>");
+		
+		
+		
+		
 		
 		//header 정보
 		Enumeration<String> en = request.getHeaderNames();
