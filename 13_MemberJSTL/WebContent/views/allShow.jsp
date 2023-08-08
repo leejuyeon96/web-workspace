@@ -18,10 +18,7 @@
 			<th>이름</th>
 			<th>주소</th>
 		</tr>
-		<%
-			ArrayList<MemberDTO> list = (ArrayList<MemberDTO>) request.getAttribute("list");
-			for(MemberDTO item : list) {
-		%>
+		<c:forEach items="${arr}" var="member">
 			<tr>
 				<td><%= item.getId() %></td>
 				<td><%= item.getName() %></td>
