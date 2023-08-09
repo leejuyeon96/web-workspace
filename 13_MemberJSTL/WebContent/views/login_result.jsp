@@ -1,7 +1,6 @@
 <%@page import="servlet.model.vo.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,21 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<% 
-		MemberDTO dto = (MemberDTO) session.getAttribute("dto"); 
-		if(dto!=null) {
-	%>
-		<h1>로그인 정보</h1>
-		<ul>
-			<c:set var="id" value="" scope="request"/>
-			<c:set var="NAME" value="이름" scope="request"/>
-			<c:set var="ADDRESS" value="주소" scope="request"/>
-		</ul>
-		<jsp:forward page="cSet2_view.jsp"/>
-	<% } else { %>
-		<h3>로그인 실패..! 로그인부터 하고 오세요</h3>
-		<a href="login.html">login.html</a>
-	<% } %>
+	<p>아이디 : ${sessionScope.dto.getId()}</p>
+	<p>비밀번호 : ${sessionScope.dto.getPassword()}</p>
+	<p>이름 : ${sessionScope.dto.getName()}</p>
+	<p>주소 : ${sessionScope.dto.getAddress()}</p>
 </body>
 </html>
