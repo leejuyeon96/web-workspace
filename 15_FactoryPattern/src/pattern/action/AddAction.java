@@ -17,7 +17,7 @@ public class AddAction implements Action {
 		 * 5. path를 최종적으로 리턴(네비게이션)
 		 * 
 		 * */
-		System.out.println("")
+		System.out.println("INSERT OK");
 	}
 
 }

@@ -1,6 +1,8 @@
 package pattern.factory;
 
 import pattern.action.Action;
+import pattern.action.AddAction;
+import pattern.action.DeleteAction;
 
 /*
  *Action들을 만들어내는 공장..
@@ -23,6 +25,9 @@ public class ActionFactory {
 		
 		if(command.equals("INSERT")) {
 			action = new AddAction();
+		}else if(command.equals("DELETE")) {
+			action = new DeleteAction();
+			
 		}
 		
 		return action;
