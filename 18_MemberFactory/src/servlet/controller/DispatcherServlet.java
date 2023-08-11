@@ -9,16 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("*.do") //이렇게 하면 *을 찾음
+@WebServlet("*.do")
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
- 
- 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//hidden 값으로 들어온 요청을 받지 않고, 들어온 요청의 주소를 직접 인식시킨다.
+		// hidden 값으로 들어온 요청을 받지 않고, 
+		// 들어온 요청의 주소를 직접 인식시킨다.
 		String requestURI = request.getRequestURI();
 		System.out.println("RequestURI :: " + requestURI);
 		
@@ -37,25 +34,15 @@ public class DispatcherServlet extends HttpServlet {
 				if(mv.isRedirect()) {
 					response.sendRedirect(mv.getPath());
 				} else {
-					request.getRequestDispatcher(mv.getPath());
+					request.getRequestDispatcher(mv.getPath()).forward(request, response);
 				}
 			}
 		} catch (Exception e) {}
 		
-		
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		doGet(request, response);
 	}
-	
-	protected String (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
-		
-	}
-	
-	protected (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
 }
