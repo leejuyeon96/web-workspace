@@ -43,6 +43,7 @@ pageEncoding="UTF-8"%> <%@ page import="servlet.model.MemberVO" %>
         	</tr>	
         	<% }} %>
         
+          <tr>
       </table>
     </div>
   </body>
