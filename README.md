@@ -230,3 +230,44 @@ yellow, blue, pink, red, green
 - begin : 반복이 시작할 번호
 - end : 반복이 끝나는 요소 번호
 - var : 현재 반복 횟수에 해당하는 변수 이름
+
+## jQuery 방식
+
+- jQuery에 내장되어 있는 Ajax 통신을 위한 가장 기본적인 함수 이용
+
+```js
+$.ajax({
+  url: "요청이 전송되는 url이 포함된 문자열(필수 구현 속성)",
+  [settings..]
+});
+```
+
+### 주요 속성
+
+- url : 요청(request) 데이터를 전송할 URL
+- type : Http 요청 방식 지정(GET/POST)
+- data : 서버로 전송할 요청 Parameter 설정
+- datatype : 서버의 응답(response) 데이터의 형식(xml, text, json, html 등) 지정, 미 작성 시 자동으로 판단하여 지정
+- success(data) : ajax 통신 성공 시 호출되는 함수를 지정, 매개변수로 응답 데이터(data)를 받음
+- error : ajax 통신 실패 시 호출되는 함수 지정
+- complete : ajax 통신 성공여부와 관계없이 통신 완료 후 실행되는 함수 지정
+- async : 비동기(true) / 동기(false) 지정
+
+### 장점
+
+- 코드 길이가 감소하여 JavaScript 방식보다 구현 방법이 간단
+- 직관적이며 다양한 방법의 코딩 가능
+- 크로스 브라우저 처리를 JQuery가 자동으로 해결
+
+## JSON
+
+- JavaScript Object Notation(자바스크립트 객체 표현법)의 약자
+- 간단한 포맷 : 괄호{}내에 key:value 쌍으로 구성 -> {"key":value}
+- key는 반드시 문자열을 사용하며 value는 String, Number, Boolean, Array, Object, null 저장 가능
+- 객체 {} 또는 배열 [] 데이터를 효율적으로 표시 가능
+
+### 특징
+
+- Ajax 통신에서 Object 타입의 데이터 전송 시 XML 대비 용량이 작고 속도가 빠름(경량 데이터 교환 방식)
+- 간단한 포맷을 가지고 있어 이해하기 쉬움
+- 순수 TEXT 기반으로 TEXT 형식이 구조화 되어 있으며 대부분의 프로그래밍언어에서 JSON 포맷 데이터를 핸들링 할 수 있는 라이브러리를 제공해 시스템 간 객체 교환에 용이
