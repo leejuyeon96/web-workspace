@@ -23,19 +23,16 @@ public class ItemDAO implements ItemDAOTemplate{
 		return dao;
 	}
 	
-	public static void main(String[]args) {
-		ItemDAO dao = new ItemDAO();
-		
-	}
-	
+
 	@Override
 	public Connection getConnection() throws SQLException {
-		Connection conn = DriverManager.getConnection(ServerInfo.URL, Server)
+		Connection conn = DriverManager.getConnection(ServerInfo.URL, ServerInfo.USER, ServerInfo.PASSWORD);
 		return conn;
 	}
 
 	@Override
 	public void closeAll(PreparedStatement ps, Connection conn) throws SQLException {
+		ps.close();
 		conn.close();
 		
 	}
@@ -49,20 +46,53 @@ public class ItemDAO implements ItemDAOTemplate{
 
 	@Override
 	public ArrayList<Item> getAllItem() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = getConnection();
+		
+		String query = "SELECT * FROM item";
+		PreparedStatement ps = conn.prepareStatement(query);
+		
+		ArrayList<Item> list = new ArrayList<>();
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()) {
+			list.add(new Item(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),rs.getInt(6)));
+		}
+		closeAll(rs, ps, conn);
+		return list;
 	}
 
 	@Override
 	public Item getItem(int itemId) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = getConnection();
+		String query = "SELECT * FROM item WHERE item_id=?";
+		PreparedStatement ps = conn.prepareStatement(query);
+		ps.setInt(1, itemId);
+		
+		ResultSet rs = ps.executeQuery();
+		Item item = null;
+		if(rs.next()) {
+			item = new Item(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),rs.getInt(6));
+		}
+		closeAll(rs, ps, conn);
+		return item;
 	}
+	
+	
 
 	@Override
 	public boolean updateRecordCount(int itemId) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		Connection conn = getConnection();
+		
+		String query = "UPDATE item SET count=count+1 WHERE item_id=?";
+		PreparedStatement ps = conn.prepareStatement(query);
+		ps.setInt(1, itemId);
+		
+		int row = ps.executeUpdate();
+		boolean result = false;
+		
+		if(row>0) result = true;
+		
+		closeAll(ps, conn);
+		return result;
 	}
 	
 	
