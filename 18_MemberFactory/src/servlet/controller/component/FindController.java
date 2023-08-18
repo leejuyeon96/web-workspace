@@ -1,8 +1,9 @@
-package servlet.controller.component;
+package member.controller.component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import member.model.service.MemberService;
 import servlet.controller.Controller;
 import servlet.controller.ModelAndView;
 import servlet.model.dao.MemberDAO;
@@ -16,7 +17,7 @@ public class FindController implements Controller {
 		String path = "views/find_fail.jsp";
 				
 		
-		MemberVO vo = MemberDAO.getInstance().findByIdMember(id);
+		MemberVO vo = new MemberService().findByIdMember(id);
 		if(vo!=null) {
 			request.setAttribute("vo", vo);
 			path = "views/find_ok.jsp";
