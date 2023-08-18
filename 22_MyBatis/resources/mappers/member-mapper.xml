@@ -20,5 +20,26 @@
 	 </insert>
 	 
 	 <!-- showAllMember, findByIdMember, login, updateMember -->
-	 	
+	 <select id='showAllMember' resultType="Member">
+	 SELECT id, password, name, address
+	 FROM member
+	 </select>	
+	 <select id='findByIdMember' resultType="Member" parameterType="String">
+	 SELECT *
+	 FROM member
+	 WHERE id=#{id}
+	 </select>
+	 
+	 <select id="login" parameterType="Member" resultType="Member">
+	 SELECT *
+	 FROM member
+	 WHERE id=#{id} AND password=#{password}
+	 </select>
+	 
+	 <update id="updateMember">
+	 UPDATE member
+	 SET password=#{password}, name=#{name}, address=#{address}
+	 WHERE id=#{id}
+	 </update>
+	 
 </mapper>
