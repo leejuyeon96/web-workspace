@@ -22,14 +22,15 @@ public class HandlerMapping {
 	}
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public Controller createController(String command) {
+		Controller controller = null;
 		
+		if(command.equals("itemList.do")) {
+			controller = new ItemListController();
+			System.out.println("controller :: ");
+		} else if(command.equals("itemView.do")) {
+			controller = new ItemViewController();
+		}
+		return controller;
 	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doGet(request, response);
-	}
-
 }

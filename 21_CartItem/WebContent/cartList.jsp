@@ -12,9 +12,7 @@
 	
 	<table border="1">
 		<tr>
-			<td>번호</td>
-			<td></td>
-			<td></td>
+	
 			
 	</table>
 	
