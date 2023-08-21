@@ -17,17 +17,25 @@
 	 if(dto != null){
 	%>
 	--%>
-		<form action="update.do" method="post">
+		<form action="/update.do" method="post">
 		
-		아이디 : <input type="text" name="id" value="${dto.id}" readonly><br>
-		비밀번호 : <input type="password" name="password" value="${dto.password}" required><br>
-		이름 : <input type="text" name="name" value="${dto.name}" required ><br>
-		주소 : <input type="text" name="address" value="${dto.address}" required><br>
+		아이디 : <input type="text" name="id" value="${vo.id}" readonly><br>
+		비밀번호 : <input type="password" name="password" value="${vo.password}" required><br>
+		이름 : <input type="text" name="name" value="${vo.name}" required ><br>
+		주소 : <input type="text" name="address" value="${vo.address}" required><br>
 		<input type="submit" value="변경하기">
 		
 		</form>
-		<a href="/HandlerMapping">첫 페이지로 돌아가기</a>
-
+		
+		<h2>비밀번호만 변경</h2>
+		
+		<form action="/update.do" method="post">
+		
+		아이디 : <input type="text" name="id" value="${vo.id}" readonly><br>
+		비밀번호 : <input type="password" name="password" value="${vo.password}" required><br>
+		
+		<input type="submit" value="변경하기">
+		</form>
 	<%--<% } --%>
 </body>
 </html>

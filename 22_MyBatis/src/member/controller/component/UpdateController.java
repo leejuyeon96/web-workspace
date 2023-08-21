@@ -27,7 +27,7 @@ public class UpdateController implements Controller {
 			session.setAttribute("vo", vo);
 		}
 		
-		return new ModelAndView("update_result.jsp");
+		return new ModelAndView("/views/update_result.jsp");
 	}
 
 }
