@@ -1,45 +1,60 @@
 package model.vo;
 
 public class StudentVO {
-	private String no;
-	private String name;
-	private String address;
+	private String studentNo;
+	private String studentName;
+	private String studentAddress;
 	
 	private DepartmentVO department;
-	
-	
+
 	public StudentVO() {
 		
 	}
-	
-	public StudentVO(String no, String name, String address) {
-		
-		this.no = no;
-		this.name = name;
-		this.address = address;
+
+	public StudentVO(String studentNo, String studentName, String studentAddress, DepartmentVO department) {
+		super();
+		this.studentNo = studentNo;
+		this.studentName = studentName;
+		this.studentAddress = studentAddress;
+		this.department = department;
 	}
 
-	public String getNo() {
-		return no;
+	public String getStudentNo() {
+		return studentNo;
 	}
-	public void setNo(String no) {
-		this.no = no;
+
+	public void setStudentNo(String studentNo) {
+		this.studentNo = studentNo;
 	}
-	public String getName() {
-		return name;
+
+	public String getStudentName() {
+		return studentName;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
-	public String getAddress() {
-		return address;
+
+	public String getStudentAddress() {
+		return studentAddress;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+
+	public void setStudentAddress(String studentAddress) {
+		this.studentAddress = studentAddress;
+	}
+
+	public DepartmentVO getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(DepartmentVO department) {
+		this.department = department;
 	}
 
 	@Override
 	public String toString() {
-		return "StudentVO [no=" + no + ", name=" + name + ", address=" + address + "]";
+		return "StudentVO [studentNo=" + studentNo + ", studentName=" + studentName + ", studentAddress="
+				+ studentAddress + ", department=" + department + "]";
 	}
+	
 }
